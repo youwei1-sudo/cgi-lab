@@ -110,9 +110,10 @@ def main():
 		# print(login_page())
 		pass
 	if (secrete_flag ) :
-		print(login_page())
-	else:
 		print(secret_page(secret.username, secret.password))
+	else:
+		print(login_page())
+		
 
 if __name__ == '__main__':
 
