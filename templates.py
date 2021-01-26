@@ -53,7 +53,7 @@ def secret_page(username=None, password=None):
         raise ValueError("You need to pass both username and password!")
 
     return _wrapper("""
-    <h1> Welcome, {username}! </h1>
+    <h2> Welcome, Secret, {username}! </h2>
 
     <p> <small> Pst! I know your password is
         <span class="spoilers"> {password}</span>.

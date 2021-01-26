@@ -2,41 +2,9 @@
 import os
 import json
 import sys
-
+from templates import secret_page
+import secret 
 # This CGI script
-
-# print('Content-Type: text/html')
-# print('Content-Type: application/octent-stream')
-# print('Content-Type: application/json')
-# # seperate header and content, q1
-# print()
-# # check in web, we use json 
-# print(json.dumps(dict(os.environ), indent=2))
-
-# #####Q3
-# ? how to add more parameters &
-# print('Content-Type: text/html')
-# # seperate header and content
-# print()
-# print("""<!DOCTYPE html>	
-# <html>
-# <body>
-# <h1>HELLO I AM HTML</h1>
-# """)
-# print("<ul>")
-# print(f"<p> QUERY_STRING={os.environ['QUERY_STRING']} </p>")
-# for parameter in os.environ['QUERY_STRING'].split('&'):
-# 	(name, value) = parameter.split('=')
-# 	print(f"<li><em>{name} </em> = {value} </li>")
-# print("""
-# </ul>
-# """)
-# print("""
-# </ul>
-# </body>
-# </html>
-# # """)
-
 
 
 
@@ -115,14 +83,32 @@ def _wrapper(page):
     """)
 
 def main():
+	tuple_array = []
+
 	# print('Content-Type: text/html')
 	
 	# seperate header and content
 	print()
 
-	print(login_page())
+	
+	# # q 6
+	cookie_tuple_array = []
+	# q 6
+	client_cookie  = os.environ.get("HTTP_COOKIE", 0)
+	# client_cookie.split(';')
 
-	# login_page()
+	if (client_cookie != "") :
+		for parameter in client_cookie.split(';'):
+			(name, value) = parameter.split('=')
+			cookie_tuple_array.append((name,value))
+		# if (cookie_tuple_array[0][0] == os.environ.get("GNOME_DESKTOP_SESSION_ID", 0) ):
+		if cookie_tuple_array[0][0] == "session_id":
+			# print("SHIT")
+			print(secret_page(secret.username, secret.password))
+	else :
+		# print(login_page())
+		pass
+	print(login_page())
 
 if __name__ == '__main__':
 

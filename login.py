@@ -6,6 +6,7 @@ import secret
 
 
 
+
 	# print('Content-Type: text/html')
 	# 	# seperate header and content
 	# print()
@@ -28,7 +29,6 @@ import secret
 	# """)
 	
 	
-
 def main():
 
 
@@ -54,7 +54,10 @@ def main():
 	if (login_flag) :
 		login_status = "Successful login"
 		session_id = os.environ.get("GNOME_DESKTOP_SESSION_ID", 0)
-		print("set-cookie: session_id = ",  session_id)
+		print("Set-Cookie: session_id = ",  session_id, "; Max-Age=30")
+		print("Set-Cookie: username = ",  secret.username, "; Max-Age=30")
+		print("Set-Cookie: password = ",  secret.password, "; Max-Age=30")
+		print("Set-Cookie: log_in = True; Max-Age=30")
 	else:
 		login_status = "Unsuccessful login"
 

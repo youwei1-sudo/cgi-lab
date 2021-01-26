@@ -17,4 +17,7 @@ Set-Cookie: <cookie-name>=<cookie-value>
 While, in the code i used, print ("set-cookie: session_id = ",  session_id), in order to add it to the header
 
 q6:What is the HTTP header syntax the browser uses to send the cookie back?
+Cookie: cookie-name=cookie-value; 
+And if there are multiple cookie be setted, then all cookies will be seperated by ; 
+For my case, Cookie: session_id=this-is-deprecated; username=David; password=t; log_in=True
 
