@@ -22,7 +22,7 @@ Roll my own "template system".
 import cgi
 import cgitb
 cgitb.enable()
-
+# from cgi import escape
 from cgi import escape
 
 __all__ = ['login_page', 'secret_page', 'after_login_incorrect']
