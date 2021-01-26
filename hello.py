@@ -96,19 +96,23 @@ def main():
 	# q 6
 	client_cookie  = os.environ.get("HTTP_COOKIE", 0)
 	# client_cookie.split(';')
+	secrete_flag =False
 
 	if (client_cookie != "") :
 		for parameter in client_cookie.split(';'):
-			(name, value) = parameter.split('=')
+			(name, value) = parameter.strip().split('=')
 			cookie_tuple_array.append((name,value))
 		# if (cookie_tuple_array[0][0] == os.environ.get("GNOME_DESKTOP_SESSION_ID", 0) ):
-		if cookie_tuple_array[0][0] == "session_id":
-			# print("SHIT")
-			print(secret_page(secret.username, secret.password))
+		for t in cookie_tuple_array:
+			if (t[0] == "session_id"):
+				secrete_flag = True
 	else :
 		# print(login_page())
 		pass
-	print(login_page())
+	if (secrete_flag ) :
+		print(login_page())
+	else:
+		print(secret_page(secret.username, secret.password))
 
 if __name__ == '__main__':
 
