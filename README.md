@@ -2,4 +2,4 @@
 
 Experimenting with CGI server stuff!
 
-Once the cookie received/ login succuessed, the login page will be chnaged to secrete page, untill reach max_age .
+Once the cookie received/ login succuessed, the login form will be chnaged to secrete , untill reach max_age .
